@@ -76,6 +76,20 @@ body{
     
 
 }
+
+.horizon .lighthouse::before{
+    height: 7vh;
+    width: 2vw;
+    content: "";
+    position: absolute;
+    border: 1px solid black;
+    background: linear-gradient(darkorange 5%, #333);
+    border-radius: 65% 65% 25% 25%;
+    left: 3vw;
+    top: 13vh;
+
+}
+
 .light-top{
     height: 15vh;
     width: 10vw;
