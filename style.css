@@ -1,48 +1,218 @@
+body{
+    overflow: hidden;
+}
+
 .ambiance{
     position: absolute;
 
     width: 100vw;
     height: 100vh;
 
-    background-image: linear-gradient(rgb(192, 246, 255), white, rgb(0, 0, 53));
+    background-image: linear-gradient(
+        #29284c 0%,
+        #4c4b82 10%,
+        #717ae1 60%,
+        #75e2fa 90%
+      );
+}
+.moon{
+    position: absolute;
+    top: 3vh;
+    left: 3vw;
+    width: 10vw;
+  height: 10vh;
+  border-radius: 50%;
+  z-index: 9;
+  background-color: #d6d9f6;
+  box-shadow: 0 0 10px #d6d9f6, 0 0 20px #d6d9f6, 0 0 30px #d6d9f6, 0 0 40px #d6d9f6, 0 0 50px #75e2fa, 0 0 100px #d6d9f6;
+}
+.horizon{
+    height: 20vh;
+    position: absolute;
+    width: 100vw;
+    background: green;
+    bottom: 20vh;
 }
 
+.horizon .basehouse{
+    width: 35vw;
+    height: 35vh;
+    
+    border-radius: 80% 80% 0 0;
+    background: darkslategrey;
+    position: absolute;
+    bottom: -26vh;
+    left: 17vw;
+}
+
+.horizon .lighthouse{
+    
+    /* position: absolute;
+    background: linear-gradient(brown 50%, yellow 50%);
+    border-bottom: 300px solid;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-radius: 100px 100px 25px 25px;
+    height: 10px;
+    width: 100px;
+    bottom: 16vh;
+    left: 39.5vw; */
+
+    position: absolute;
+    height: 39vh;
+    width: 8vw;
+    background-color: #d6d9f6;
+    background-image: repeating-linear-gradient(
+        -40deg,
+        transparent,
+        transparent 60px,
+        darkred 60px,
+        red 120px
+  );
+    bottom: 15vh;
+    left: 31vw;
+    transform: perspective(600px) rotateX(20deg);
+    z-index: 2;
+    
+
+}
+.light-top{
+    height: 15vh;
+    width: 10vw;
+    position: absolute;
+    left: 29.5vw;
+    bottom: 51vh;
+    border-radius: 50% 50% 10% 10%;
+    border-top: 2vh solid transparent;
+    border-bottom: 2vh solid rgb(165, 0, 0);
+    border-right: 1vh solid black;
+    border-left: 1vh solid black;
+    background-image:
+      repeating-linear-gradient(black 0 1px, transparent 1px 100%),
+      repeating-linear-gradient(90deg, black 0 1px, darkorange 1px 100%);
+    background-size: 4vh 3vw;
+}
+.light-top::before{
+    content: "";
+    border-bottom:8vh solid darkred;
+    width:120%;
+    display:inline-block;
+    margin:0 auto;
+    border-radius: 50vh 50vh 0 0;
+    position: relative;
+    top: -3vh;
+    left: -1vw;
+}
+
+.door{
+    height:7vh;
+    position: absolute;
+    bottom: 7.5vh;
+    width:2vw;
+    background: linear-gradient(darkslategrey, black);
+    left: 34vw;
+    z-index: 4;
+    border: 1px solid black;
+    border-radius: 25vh 25vh;
+}
+.door::before{
+    height: 0.5vh;
+    width: 0.7vw;
+    content: "";
+    position: absolute;
+    border: 1px solid black;
+    background: linear-gradient(black, #333);
+    border-radius: 50% 20% 20% 0;
+    top: 3vh;
+    left: 0.1vw;
+}
+.horizon .baselighthouse{
+    /* width: 10vw;
+    height: 10vh; */
+    /* background: linear-gradient(white 5%, gray, black 55%); */
+    position: absolute;
+    top: 4vh;
+    left: 29vw;
+    /* border-radius: 50% 50% 0 0; */
+
+    /* border-bottom: 100px solid black;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-radius: 55px 55px 25px 25px;
+    height: 12px;
+    width: 150px;
+    z-index: 2; */
+    height:9vh;
+    width:12vw;
+    background:rgb(46, 46, 46);
+    border-radius:10px 10px 0 0;
+    z-index: 3;
+
+}
 .ocean{
     position: absolute;
     width: 100vw;
     height: 40vh;
     bottom: 0;
+    background: linear-gradient(transparent 40%, darkblue 60%);
 }
 
 .ocean .wave{
     width: inherit;
     height: inherit;
 
-    background: radial-gradient(circle at 0% 26%, darkblue 20%, transparent 22%),
-                radial-gradient(circle at 100% 26%, darkblue 20%, transparent 22%),
-                radial-gradient(ellipse at top, transparent 38%, darkblue 42%);
-    background-size: 20vw 20vw;
-
     filter: drop-shadow(0 0 1vh black);
     position: absolute;
+    -webkit-mask-size: cover;
+    background: 
+        linear-gradient(transparent,rgb(92, 92, 252) 40%, rgb(0, 0, 138) 80%),
+        url(./images/abstract-background-with-wavy-paint-texture\ \(1\).jpg);
+    
+    
+    background-size: cover, 50vh 50vh;
+        /* animation: waveMove 10s infinite; */
 
-    animation: waveMove 10s infinite;
+    
+
 }
 
 .ocean .wave:nth-child(1){
-    animation-delay: -1s;
-    transform: translateY(-2vh) scale(0.7);
-}
-}
-.ocean .wave:nth-child(2){
-    animation-delay: -2s;
-    transform: translateY(5vh) scale(0.9);
-}
-.ocean .wave:nth-child(3){
-    animation-delay: 5s;
-    transform: translateY(10vh) scale(1.3);
+    animation-delay: 2s;
+    transform: translateY(2vh) scaleY(0.8) scaleX(1.7);
+    -webkit-mask-image: url(./images/wave26.svg);
 }
 
+.ocean .wave:nth-child(2){
+    animation-delay: -2s;
+    transform: translateY(3vh) scaleY(0.9) scaleX(1.7);
+    -webkit-mask-image: url(./images/wave24.svg);
+} 
+.ocean .wave:nth-child(3){
+    animation-delay: -1s;
+    transform: translateY(4vh) scaleY(0.9) scaleX(1.7);
+    -webkit-mask-image: url(./images/wave28.svg);
+}
+.ocean .wave:nth-child(4){
+    animation-delay: -3s;
+    transform: translateY(4vh) scaleY(0.8) scaleX(1.6);
+    -webkit-mask-image: url(./images/wave23.svg);
+}
+
+.ocean .wave:nth-child(5){
+    animation-delay: 5s;
+    transform: translateY(10vh) scaleY(0.8) scaleX(2);
+    -webkit-mask-image: url(./images/wave20.svg);
+}
+
+/* .ocean .wave:nth-child(5){
+    animation-delay: -2s;
+    transform: translateY(4vh) scaleY(0.65) scaleX(1.6);
+    -webkit-mask-image: url(./images/wave22.svg);
+}
+.ocean .wave:nth-child(6){
+    animation-delay: -2s;
+    transform: translateY(3vh) scaleY(0.60) scaleX(1.8);
+    -webkit-mask-image: url(./images/wave27.svg); */
 
 @keyframes waveMove{
     0%{ left: 0vw; bottom: 0vh;}
