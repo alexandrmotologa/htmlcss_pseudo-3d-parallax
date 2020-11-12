@@ -12,37 +12,160 @@ body{
         #29284c 0%,
         #4c4b82 10%,
         #717ae1 60%,
-        #75e2fa 90%
-      );
+        #75e2fa 90%);
 }
 .moon{
     position: absolute;
     top: 3vh;
     left: 3vw;
     width: 10vw;
-  height: 10vh;
-  border-radius: 50%;
-  z-index: 9;
-  background-color: #d6d9f6;
-  box-shadow: 0 0 10px #d6d9f6, 0 0 20px #d6d9f6, 0 0 30px #d6d9f6, 0 0 40px #d6d9f6, 0 0 50px #75e2fa, 0 0 100px #d6d9f6;
+    height: 10vh;
+    border-radius: 50%;
+    z-index: 9;
+    background-color: #d6d9f6;
+    box-shadow: 0 0 10px #d6d9f6, 0 0 20px #d6d9f6, 0 0 30px #d6d9f6, 0 0 40px #d6d9f6, 0 0 50px #75e2fa, 0 0 100px #d6d9f6;
 }
+
 .horizon{
     height: 20vh;
     position: absolute;
     width: 100vw;
-    background: green;
     bottom: 20vh;
+    background: linear-gradient(#717ae1 30%, #4c4b82 80%);
 }
 
-.horizon .basehouse{
+.horizon .islandhouse{
     width: 35vw;
     height: 35vh;
     
     border-radius: 80% 80% 0 0;
     background: darkslategrey;
     position: absolute;
-    bottom: -26vh;
+    bottom: -23vh;
     left: 17vw;
+}
+.horizon .islandhouse:before{
+    width: 17vw;
+    height: 20vh;
+    content: "";
+    border-radius: 100% 100% 0 0;
+    background: darkslategrey;
+    position: absolute;
+    bottom: 15vh;
+    left: 22vw;
+    
+}
+.horizon .islandhouse:after{
+    width: 25vw;
+    height: 25vh;
+    content: "";
+    border-radius: 100% 100% 0 0;
+    background:  darkslategrey;
+    position: absolute;
+    bottom: 13vh;
+    left: -5vw;
+}
+.stars, .clouds{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    width:100%;
+    height:100%;
+    display:block;
+  }
+  
+  .stars {
+    background: url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+    z-index:0;
+  }
+.clouds{
+    background:transparent url(http://www.script-tutorials.com/demos/360/images/clouds3.png) repeat top center;
+    z-index:2;
+}
+.lightWrapper  {
+    width:40px;
+    height:40px;
+    border-radius: 100%;
+    position:absolute;
+    perspective: 5px;
+    /* animation: rotate 8s infinite; */
+    animation-direction: alternate;
+    transform-origin: left;
+    left: 35vw;
+    bottom: 55vh;
+    z-index: 10;
+}
+/* .lightWrapper::before{
+    content: "";
+    width: inherit;
+    height: inherit;
+    border: 2px solid black;
+    position: absolute;
+    background:linear-gradient(darkorange, rgb(251, 255, 0));
+    border-radius: inherit;
+    
+} */
+.lampe{
+    width: 4vw;
+    height: 6vh;
+    background:linear-gradient(yellow, darkorange);
+    position: relative;
+    left: 3vw;
+    border-radius: 100%;
+    border: 2px solid red;
+    box-shadow: 0px 0px 10px 10px inset yellow;
+}
+.lampe::before{
+    content: "";
+    position: absolute;
+    width: 0.1vw;
+    height: 9vh;
+    background: black;
+    top: -17vh;
+    border-top: #29284c 10px solid;
+}
+.radio{
+    width: 2.5vw;
+    height: 5vh;
+    background: linear-gradient(to right, rgb(71, 71, 71), black);
+    position: absolute;
+    border-top: #29284c 2px solid;
+    border-radius: 100%;
+    left: 36vw;
+    bottom: 68vh;
+    z-index: 2;
+    box-shadow: 2px 2px 5px 5px;
+}
+.radio::before{
+    content: "";
+    width: 1vw;
+    height: 4vh;
+    border-bottom: 5px solid rgb(71, 71, 71) ;
+    position: absolute;
+    border-right: 5px solid rgb(41, 39, 39) ;
+    
+    top: 3vh;
+    left: 0vw;
+}
+
+.light  {
+    background: linear-gradient(to right,  rgb(197, 83, 83) 0%,rgb(208, 255, 0) 16%,rgba(240, 255, 153, 0.72) 48%, white 70%);
+    width:30vw;
+    height:10vh;
+    transform:rotatey(-12deg);
+    border-radius:5000px 5px 5px 5000px;
+    z-index: 10;
+}
+
+@keyframes rotate {
+    0% {transform:rotatey(0deg);opacity:0;}
+    15% {opacity:1;}
+    50%{opacity:1;}
+    60% {transform:rotatey(180deg);}
+    61%  {opacity:1;}
+    100%  {opacity:1;}
 }
 
 .horizon .lighthouse{
@@ -62,12 +185,13 @@ body{
     height: 39vh;
     width: 8vw;
     background-color: #d6d9f6;
-    background-image: repeating-linear-gradient(
+    background-image: linear-gradient(90deg, rgb(34, 34, 34), transparent, black),
+    repeating-linear-gradient(
         -40deg,
         transparent,
         transparent 60px,
         darkred 60px,
-        red 120px
+        rgb(70, 38, 0) 120px
   );
     bottom: 15vh;
     left: 31vw;
@@ -78,7 +202,7 @@ body{
 }
 
 .horizon .lighthouse::before{
-    height: 7vh;
+    height: 6vh;
     width: 2vw;
     content: "";
     position: absolute;
@@ -86,8 +210,19 @@ body{
     background: linear-gradient(darkorange 5%, #333);
     border-radius: 65% 65% 25% 25%;
     left: 3vw;
-    top: 13vh;
+    top: 13.2vh;
 
+}
+.horizon .lighthouse::after{
+    height: 6vh;
+    width: 0.1vw;
+    content: "";
+    position: absolute;
+    border: 1px solid black;
+    background: linear-gradient(darkorange 5%, #333);
+    border-radius: 65% 65% 25% 25%;
+    left: 0vw;
+    top: 3.6vh;
 }
 
 .light-top{
@@ -98,7 +233,7 @@ body{
     bottom: 51vh;
     border-radius: 50% 50% 10% 10%;
     border-top: 2vh solid transparent;
-    border-bottom: 2vh solid rgb(165, 0, 0);
+    border-bottom: 2vh solid rgb(70, 38, 0);
     border-right: 1vh solid black;
     border-left: 1vh solid black;
     background-image:
@@ -108,7 +243,7 @@ body{
 }
 .light-top::before{
     content: "";
-    border-bottom:8vh solid darkred;
+    border-bottom:8vh solid rgb(70, 38, 0);
     width:120%;
     display:inline-block;
     margin:0 auto;
@@ -121,13 +256,14 @@ body{
 .door{
     height:7vh;
     position: absolute;
-    bottom: 7.5vh;
+    bottom: 6.7vh;
     width:2vw;
     background: linear-gradient(darkslategrey, black);
-    left: 34vw;
+    left: 33.8vw;
     z-index: 4;
-    border: 1px solid black;
+    border: 5px solid rgb(27, 27, 27);
     border-radius: 25vh 25vh;
+    
 }
 .door::before{
     height: 0.5vh;
@@ -156,31 +292,35 @@ body{
     height: 12px;
     width: 150px;
     z-index: 2; */
-    height:9vh;
+    height:10vh;
     width:12vw;
-    background:rgb(46, 46, 46);
     border-radius:10px 10px 0 0;
     z-index: 3;
-
+    background-image:
+      repeating-linear-gradient(black 0 0px, transparent 0px 100%),
+      repeating-linear-gradient(90deg, black 0 5px, rgb(46, 46, 46) 1px 100%);
+    background-size: 6vh 3vw;
+    transform: perspective(600px) rotateX(30deg);
 }
 .ocean{
     position: absolute;
     width: 100vw;
     height: 40vh;
     bottom: 0;
-    background: linear-gradient(transparent 40%, darkblue 60%);
+    background: linear-gradient(transparent 40%, darkblue 50%);
+    overflow: hidden;
 }
 
 .ocean .wave{
     width: inherit;
     height: inherit;
 
-    filter: drop-shadow(0 0 1vh black);
     position: absolute;
     -webkit-mask-size: cover;
     background: 
-        linear-gradient(transparent,rgb(92, 92, 252) 40%, rgb(0, 0, 138) 80%),
-        url(./images/abstract-background-with-wavy-paint-texture\ \(1\).jpg);
+        linear-gradient(transparent, transparent 40%, rgb(0, 0, 138) 80%),
+        linear-gradient(rgb(103, 87, 121) 5%, rgb(0, 0, 116) 100%);
+
     
     
     background-size: cover, 50vh 50vh;
@@ -194,28 +334,34 @@ body{
     animation-delay: 2s;
     transform: translateY(2vh) scaleY(0.8) scaleX(1.7);
     -webkit-mask-image: url(./images/wave26.svg);
+    z-index: 9;
 }
 
 .ocean .wave:nth-child(2){
     animation-delay: -2s;
     transform: translateY(3vh) scaleY(0.9) scaleX(1.7);
     -webkit-mask-image: url(./images/wave24.svg);
+    z-index: 9;
+    
 } 
 .ocean .wave:nth-child(3){
     animation-delay: -1s;
     transform: translateY(4vh) scaleY(0.9) scaleX(1.7);
     -webkit-mask-image: url(./images/wave28.svg);
+    z-index: 9;
 }
 .ocean .wave:nth-child(4){
     animation-delay: -3s;
     transform: translateY(4vh) scaleY(0.8) scaleX(1.6);
     -webkit-mask-image: url(./images/wave23.svg);
+    z-index: 9;
 }
 
 .ocean .wave:nth-child(5){
     animation-delay: 5s;
     transform: translateY(10vh) scaleY(0.8) scaleX(2);
     -webkit-mask-image: url(./images/wave20.svg);
+    z-index: 9;
 }
 
 /* .ocean .wave:nth-child(5){
