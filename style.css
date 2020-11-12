@@ -305,6 +305,7 @@ body{
     height: inherit;
 
     position: absolute;
+    mask-size: cover;
     -webkit-mask-size: cover;
     background: 
         linear-gradient(transparent, transparent 40%, rgb(0, 0, 138) 80%),
@@ -319,6 +320,7 @@ body{
 .ocean .wave:nth-child(1){
     animation-delay: 2s;
     transform: translateY(2vh) scaleY(0.8) scaleX(1.7);
+    mask-image: url(./images/wave26.svg);
     -webkit-mask-image: url(./images/wave26.svg);
     z-index: 9;
 }
@@ -326,6 +328,7 @@ body{
 .ocean .wave:nth-child(2){
     animation-delay: -2s;
     transform: translateY(3vh) scaleY(0.9) scaleX(1.7);
+    mask-image: url(./images/wave24.svg);
     -webkit-mask-image: url(./images/wave24.svg);
     z-index: 9;
     
@@ -333,12 +336,14 @@ body{
 .ocean .wave:nth-child(3){
     animation-delay: -1s;
     transform: translateY(4vh) scaleY(0.9) scaleX(1.7);
+    mask-image: url(./images/wave28.svg);
     -webkit-mask-image: url(./images/wave28.svg);
     z-index: 9;
 }
 .ocean .wave:nth-child(4){
     animation-delay: -3s;
     transform: translateY(4vh) scaleY(0.8) scaleX(1.6);
+    mask-image: url(./images/wave23.svg);
     -webkit-mask-image: url(./images/wave23.svg);
     z-index: 9;
 }
@@ -346,6 +351,7 @@ body{
 .ocean .wave:nth-child(5){
     animation-delay: 5s;
     transform: translateY(10vh) scaleY(0.8) scaleX(2);
+    mask-image: url(./images/wave20.svg);
     -webkit-mask-image: url(./images/wave20.svg);
     z-index: 9;
 }
